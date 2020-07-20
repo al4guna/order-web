@@ -5,6 +5,7 @@ export const Item = styled.li`
 	border-radius: 8px;
 	padding: 10px;
 	position: relative;
+	margin: 10px 0;
 `	
 
 export const Header = styled.div`
@@ -22,7 +23,7 @@ export const Icon = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: 10px;
+	padding: 15px;
 	border-top-right-radius: 8px;
 `
 
