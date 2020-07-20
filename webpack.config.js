@@ -19,9 +19,7 @@ module.exports = {
 		host: '192.168.1.8',
         historyApiFallback: true
 	},
-	entry: {
-		app: './src/index.js'
-	},
+	entry: ["babel-polyfill", "./src/index.js"],
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist')
