@@ -7,7 +7,7 @@ export const Page = styled.div`
 	left: 0;
 	right: 0;
 	background: rgba(242, 243, 245, 0.8);
-	z-index: 100;
+	z-index: 1000;
 	display: flex;
 	justify-content: center;
 	align-items: center;
