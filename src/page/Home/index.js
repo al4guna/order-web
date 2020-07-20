@@ -5,6 +5,10 @@ import { ListOfOrders } from '../../components/ListOfOrders'
 import { FabButton } from '../../components/FabButton'
 import { ModalCreateOrden } from '../../components/ModalCreateOrden'
 
+import {
+	Secction
+}from './styled'
+
 export const Home = () => {
 
 	const [modal, setModal] = useState(false)
@@ -16,9 +20,10 @@ export const Home = () => {
 	return(
 		<>
 			<Nav />
-			<ListOfOrders />
+			<Secction>
+				<ListOfOrders />
+			</Secction>
 			<FabButton activeModal={activeModal} />
-
 			{ modal && <ModalCreateOrden activeModal={activeModal} />}
 		</>
 	)
