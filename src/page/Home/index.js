@@ -1,12 +1,16 @@
 import React from 'react'
 
 import {  Nav } from '../../components/Nav'
+import { ListOfOrders } from '../../components/ListOfOrders'
+import { FabButton } from '../../components/FabButton'
 
 export const Home = () => {
 	return(
 		<>
 			<Nav />
-			<h1>Page Home</h1>
+			<ListOfOrders />
+			<FabButton />
+			
 		</>
 	)
 }
