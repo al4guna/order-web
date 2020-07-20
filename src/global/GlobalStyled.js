@@ -22,14 +22,14 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     background: #f0f2f5;
-    height: 100vh;
     margin: 0 0;
     overscroll-behavior: none;
     width: 100%;
   }
   #root {
     overflow-x: hidden;
-    min-height: 100vh;
-    padding-bottom: 10px;
+    overflow-y: hidden;
+    height: 100vh;
+    position: relative;
   }
 `
