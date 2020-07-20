@@ -10,6 +10,18 @@ export const ListOfOrders = () => {
 	return(
 		<List>
 			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+			<Order />
+	
 		</List>
 	)
 }
