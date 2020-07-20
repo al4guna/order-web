@@ -5,9 +5,10 @@ import {
 	Button
 }from './styled'
 
-export const FabButton = () => {
+export const FabButton = (props) => {
+
 	return(
-		<Button>
+		<Button onClick={props.activeModal}>
 			<IoIosAdd size="40px" color="#3578e5"/>
 		</Button>
 	)
