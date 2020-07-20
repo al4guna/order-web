@@ -6,22 +6,12 @@ import {
 	List
 }from './styled'
 
-export const ListOfOrders = () => {
+export const ListOfOrders = ({orders}) => {
 	return(
-		<List>
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-			<Order />
-	
-		</List>
+		<List>{
+			orders.map((order, key) => {
+				return <Order {...order} key={key} number={key}/>
+			})
+		}</List>
 	)
 }

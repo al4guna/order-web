@@ -4,24 +4,25 @@ import {
 	Item, Header, Content, Title, Icon, Text, Span, Link
 }from './styled'
 
-export const Order = ({number = 1}) => {
+export const Order = (props) => {
+
 	return(
 		<Item>
 			<Header>
-				<Title>Orden #{number}</Title>
+				<Title>Orden #{props.number + 1}</Title>
 				<Icon>
 					<FiEdit color="#000"/> 
 				</Icon>
 			</Header>
 			<Content>
 				<div>
-					<Text>Canal: <Span>Canal de recepción</Span></Text>
-					<Text>Estado: <Span>Reservada</Span></Text>
-					<Text>Valor: <Span>$30000</Span></Text>
-					<Text>Descuento: <Span>0%</Span></Text>
-					<Text>Fecha de creación: <Span>29/09/2020</Span></Text>
-					<Text>Tipo de entrega: <Span>Estandar</Span></Text>
-					<Text>Tipo de envio: <Span>Entrega en tienda</Span></Text>
+					<Text>Canal: <Span>{props.chanel}</Span></Text>
+					<Text>Estado: <Span>{props.state}</Span></Text>
+					<Text>Valor: <Span>${props.value}</Span></Text>
+					<Text>Descuento: <Span>{props.discount}%</Span></Text>
+					<Text>Fecha de creación: <Span>{props.date}</Span></Text>
+					<Text>Tipo de entrega: <Span>{props.deliveryType}</Span></Text>
+					<Text>Tipo de envio: <Span>{props.shippingType}</Span></Text>
 				</div>
 				<div>
 					<Link>ver más</Link>
