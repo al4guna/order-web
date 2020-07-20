@@ -15,7 +15,9 @@ const jsRule = {
 module.exports = {
 	mode: 'development',
 	devServer: {
-		contentBase: path.join(__dirname, 'dist')
+		contentBase: path.join(__dirname, 'dist'),
+		host: '192.168.1.8',
+        historyApiFallback: true
 	},
 	entry: {
 		app: './src/index.js'
