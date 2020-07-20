@@ -9,7 +9,17 @@ export const Button = styled.button`
 	-webkit-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.14);
 	-moz-box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.14);
 	box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.14);
-	position: absolute;
+	position: fixed;
 	bottom: 20px; 
 	right: 20px;
+	top: auto;
+	cursor: pointer;
+
+	&:hover {
+		height: 51px;
+		width: 51px;
+		-webkit-box-shadow:  1px 1px 10px 1px rgba(0,0,0,0.4);
+		-moz-box-shadow:  1px 1px 10px 1px rgba(0,0,0,0.4);
+		box-shadow:  1px 1px 10px 1px rgba(0,0,0,0.4);
+	}
 `
