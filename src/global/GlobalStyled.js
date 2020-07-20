@@ -21,15 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
   }
   body {
-    background: #fefefe;
+    background: #f0f2f5;
     height: 100vh;
-    margin: 0 auto;
-    max-width: 500px;
+    margin: 0 0;
     overscroll-behavior: none;
     width: 100%;
   }
-  #app {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  #root {
     overflow-x: hidden;
     min-height: 100vh;
     padding-bottom: 10px;
