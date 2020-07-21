@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import { Home } from './page/Home'
+import { Products } from './page/Products'
 import { GlobalStyle } from './global/GlobalStyled'
 
 export const Router = () => {
@@ -9,7 +10,8 @@ export const Router = () => {
 		<BrowserRouter>
 			<GlobalStyle />
 			<Switch>
-				<Route path="/"> <Home /> </Route>
+				<Route exact path="/"> <Home /> </Route>
+				<Route exact path="/:id"> <Products/> </Route>
 			</Switch>
 		</BrowserRouter>
 	)
