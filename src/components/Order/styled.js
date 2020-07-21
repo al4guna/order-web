@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link as LinkR } from "react-router-dom";
 
 export const Item = styled.li`
 	background: #fff;
@@ -8,6 +9,11 @@ export const Item = styled.li`
 	margin: 10px 0;
 `	
 
+export const RouterLink = styled(LinkR)`
+	text-decoration: none;
+	text-styled: none;
+`
+
 export const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -16,6 +22,7 @@ export const Header = styled.div`
 
 export const Title = styled.p`
 	font-weight: 500;
+	color: #000;
 `
 
 export const Icon = styled.div`
@@ -35,13 +42,14 @@ export const Content = styled.div`
 
 export const Text = styled.p`
 	font-size: 0.8em;
+	color: #000;
 `
 
 export const Span = styled.span`
 	color: #828282;
 `
 
-export const Link = styled.a`
+export const Link = styled.span`
 	color: #3578e5;
 	font-weight: 600;
 	font-size: 0.8em;

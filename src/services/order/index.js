@@ -9,3 +9,13 @@ export const getOrders =  () => {
 	})
 	return request
 }
+
+export const postOrder = (order) => {
+	const request = axios({
+		method: "post",
+		url: `${URL_API}/ordenes`,
+		headers: [],
+		data: order
+	})
+	return request
+}

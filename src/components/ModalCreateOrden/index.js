@@ -1,32 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoMdClose } from 'react-icons/io'
 
+import { validateCreateOrder } from '../../utils/validation/order'
+import { parserCreateOrder } from '../../utils/parser'
 import { useInputValue } from '../../hooks/useInputValue'
+import { postOrder } from '../../services/order'
+import { Loading } from '../Loading'
+
 import {
 	Page, Modal, 
 	Header, Title, Close,
-	Content, Container, Label, Input, Select, ButtonSave
+	Content, Container, Label, Input, Select, 
+	ButtonSave, Error
 }from './styled'
 
 export const ModalCreateOrden = (props) => {
 	const channel = useInputValue('')
-	const state = useInputValue()
+	const state = useInputValue('')
 	const value = useInputValue(Number)
 	const discount = useInputValue(Number)
 	const date = useInputValue('')
-	const deliveryType = useInputValue()
-	const shippingType = useInputValue()
+	const deliveryType = useInputValue('')
+	const shippingType = useInputValue('')
+	
+	const [ loading, setLoading] = useState(false)
+	const [errors, setError] = useState([])
 
-	const save = () => {
-		console.log(channel.value)
-		console.log(state.value)
-		console.log(value.value)
-		console.log(discount.value)
-		console.log(date.value)
-		console.log(deliveryType.value)
-		console.log(shippingType.value)
+	const restoreForm = () => {
+		channel.setInput('')
+		value.setInput(0)
+		discount.setInput(0)
+		date.setInput('')
 	}
 
+	const save = async (e) => {
+		e.preventDefault()
+		try {
+			setLoading(true)
+			const order = await parserCreateOrder(channel, state, value, discount, date, deliveryType, shippingType )
+			const orderN = await validateCreateOrder(order)
+			const { data } = await postOrder(orderN)
+			props.addOrder(data.data)
+			restoreForm()
+			setError([])
+			setLoading(false)
+		}catch(e) {
+			setLoading(false)
+			setError(e)
+		}
+	}
 
 	return(
 		<Page>
@@ -40,12 +62,12 @@ export const ModalCreateOrden = (props) => {
 				<Content>
 					<Container>
 						<Label>Canal:</Label> <br />
-						<Input type="text" {...channel} />
+						<Input type="text" {...channel} placeholder="canal"/>
 					</Container>
 					<Container>
 						<Label>Estado:</Label> <br />
 						<Select {...state}>
-							<option value="-1">Seleccione</option>
+							<option value="">Seleccione</option>
 							<option value="Reservada">Reservada</option>
 							<option value="Pendiente">Pendiente</option>
 							<option value="En tránsito">En tránsito</option>
@@ -56,20 +78,20 @@ export const ModalCreateOrden = (props) => {
 					</Container>	
 					<Container>
 						<Label>Valor:</Label> <br />
-						<Input type="number" {...value} />
+						<Input type="number" {...value} placeholder="valor"/>
 					</Container>	
 					<Container>
 						<Label>Descuento:</Label> <br />
-						<Input type="text" {...discount} />
+						<Input type="Number" {...discount} placeholder="descuento"/>
 					</Container>
 					<Container>
 						<Label>Fecha de creación:</Label> <br />
-						<Input type="text" {...date}/>
+						<Input type="text" {...date} placeholder="fecha de creación"/>
 					</Container>
 					<Container>
 						<Label>Tipo de entrega:</Label> <br />
 						<Select {...deliveryType}>
-							<option value="-1">Seleccione</option>
+							<option value="">Seleccione</option>
 							<option value="Estandar">Estandar</option>
 							<option value="Express">Express</option>
 						</Select>
@@ -77,7 +99,7 @@ export const ModalCreateOrden = (props) => {
 					<Container>
 						<Label>Tipo de envio:</Label> <br />
 						<Select {...shippingType}>
-							<option value="-1">Seleccione</option>
+							<option value="">Seleccione</option>
 							<option value="Entrega en tienda">Entrega en tienda</option>
 							<option value="Entrega en domicilio">Entrega en domicilio</option>
 						</Select>
@@ -85,7 +107,19 @@ export const ModalCreateOrden = (props) => {
 					<Container>
 						<ButtonSave onClick={save}>Guardar Orden</ButtonSave>
 					</Container>
+					<Error>
+					{
+						errors.map((e, key) => {
+							return (
+								<span key={key}>
+									{e}, 
+								</span>
+							)
+						})
+					}
+					</Error>
 				</Content>
+				{ loading && <Loading />}
 			</Modal>
 		</Page>
 	)

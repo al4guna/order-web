@@ -20,15 +20,19 @@ export const Home = () => {
 		setModal(!modal)
 	}
 
+	const addOrder = (order) => {
+		let ordersN = orders;
+		ordersN.push(order)
+		setOrders(ordersN)
+	}
+
 	useEffect(() => {
 		const getData = async () => {
 			try {
 				const { data }  = await getOrders();
 				setOrders(data.data)
-				console.log(data.data)
 			}catch(e){
-				console.log()
-				console.log("log")
+				console.log(e)
 			}
 		}
 		getData()
@@ -41,7 +45,7 @@ export const Home = () => {
 				<ListOfOrders orders={orders} />
 			</Secction>
 			<FabButton activeModal={activeModal} />
-			{ modal && <ModalCreateOrden activeModal={activeModal} />}
+			{ modal && <ModalCreateOrden activeModal={activeModal} addOrder={addOrder}/>}
 		</>
 	)
 }

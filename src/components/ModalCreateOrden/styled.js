@@ -45,6 +45,7 @@ export const Close = styled.button`
 	right: 10px;
 	top: 50%;
 	transform: translateY(-50%);
+	cursor: pointer;
 `
 
 export const Content = styled.div`
@@ -90,4 +91,12 @@ export const ButtonSave = styled.button`
 	font-size: 1em;
 	padding: 8px 0;
 	margin-top: 10px;
+`
+
+export const Error = styled.div`
+	color: red;
+	font-size: 0.7em;
+	width: 100%;
+	padding: 0 20px; 
+	text-align: center;
 `
