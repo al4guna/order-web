@@ -13,7 +13,7 @@ const animation = keyframes`
 export const Container = styled.div`
 	display: flex;
 	justify-content: center;
-	width: 100%;
+	width: inherit;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%)
