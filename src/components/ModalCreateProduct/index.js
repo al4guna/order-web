@@ -37,10 +37,9 @@ export const ModalCreateProduct = (props) => {
 		try {
 			setLoading(true)
 			const product = await parserCreateProduct(props.idOrder, sku, name, quantity, price, barcode  )
-			console.log(product)
 			const productN = await validateCreateProduct(product) 
-			// const { data } = await postProduct(productN)
-			// props.addProduct(data.data)
+			const { data } = await postProduct(productN)
+			props.addProduct(data.data)
 			restoreForm()
 			setError([])
 			setLoading(false)
