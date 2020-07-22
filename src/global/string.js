@@ -1,1 +1,1 @@
-export const URL_API = 'http://192.168.1.8:8888/api'
+export const URL_API = 'http://ordenes-env.eba-wcnuqsfs.us-east-2.elasticbeanstalk.com/api'
