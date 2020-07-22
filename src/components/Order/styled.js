@@ -7,6 +7,11 @@ export const Item = styled.li`
 	padding: 10px;
 	position: relative;
 	margin: 10px 0;
+
+	@media (min-width: 390px) {
+		padding: 15px;
+    }
+
 `	
 
 export const RouterLink = styled(LinkR)`
@@ -23,6 +28,11 @@ export const Header = styled.div`
 export const Title = styled.p`
 	font-weight: 500;
 	color: #000;
+
+	@media (min-width: 390px) {
+		font-size: 1.1em;
+    }
+
 `
 
 export const Icon = styled.button`
@@ -34,6 +44,10 @@ export const Icon = styled.button`
 	border-none;
 	z-index: 500;
 	border-top-right-radius: 8px;
+	cursor: pointer;
+	&:hover {
+		background: #d4d5d7;
+	}
 `
 
 export const Content = styled.div`
@@ -45,6 +59,9 @@ export const Content = styled.div`
 export const Text = styled.p`
 	font-size: 0.8em;
 	color: #000;
+	@media (min-width: 390px) {
+		font-size: 0.9em;
+    }
 `
 
 export const Span = styled.span`

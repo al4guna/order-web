@@ -10,7 +10,7 @@ import {
 	Page, Modal, 
 	Header, Title, Close,
 	Content, Container, Label, Input, Select, 
-	ButtonSave, Error
+	ButtonSave
 }from './styled'
 
 export const ModalEditOrder = (props) => {

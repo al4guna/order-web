@@ -16,8 +16,19 @@ export const Page = styled.div`
 export const Modal = styled.div`
 	border-radius: 8px;
 	background: #fff;
-	height: 90%;
+	height: auto;
 	width: 95%;
+	-webkit-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.23);
+	-moz-box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.23);
+	box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.23);
+
+	@media (min-width: 800px) {
+		width: 60%;
+	}
+
+	@media (min-width: 1000px) {
+		width: 40%;
+    }
 `
 
 export const Header = styled.div`
@@ -91,6 +102,8 @@ export const ButtonSave = styled.button`
 	font-size: 1em;
 	padding: 8px 0;
 	margin-top: 10px;
+	margin-bottom:10px
+	cursor: pointer;
 `
 
 export const Error = styled.div`
