@@ -19,3 +19,13 @@ export const postOrder = (order) => {
 	})
 	return request
 }
+
+export const updateOrder = (order) => {
+	const request = axios({
+		method: "put",
+		url: `${URL_API}/ordenes`,
+		headers: [],
+		data: order
+	})
+	return request
+}

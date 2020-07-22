@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 
 import {  Nav } from '../../components/Nav'
 import { ListOfOrders } from '../../components/ListOfOrders'
@@ -14,7 +13,7 @@ import {
 export const Home = () => {
 
 	const [modal, setModal] = useState(false)
-	const [orders, setOrders] = useState([1,2,3,4])
+	const [orders, setOrders] = useState([])
 
 	const activeModal = () => {
 		setModal(!modal)

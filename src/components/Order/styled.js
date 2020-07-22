@@ -25,12 +25,14 @@ export const Title = styled.p`
 	color: #000;
 `
 
-export const Icon = styled.div`
+export const Icon = styled.button`
 	background: #e4e6eb;
 	position: absolute;
 	top: 0;
 	right: 0;
 	padding: 15px;
+	border-none;
+	z-index: 500;
 	border-top-right-radius: 8px;
 `
 
