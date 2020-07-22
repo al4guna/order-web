@@ -13,13 +13,13 @@ const jsRule = {
 }
 
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),
 		host: '192.168.1.8',
         historyApiFallback: true
 	},
-	entry: ["babel-polyfill", "./src/index.js"],
+	entry: ["./src/index.js", "babel-polyfill"],
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist')

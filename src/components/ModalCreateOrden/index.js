@@ -49,7 +49,6 @@ export const ModalCreateOrden = (props) => {
 			if (Array.isArray(e)){
 				setError(e)
 			}
-			
 		}
 	}
 

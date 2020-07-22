@@ -45,7 +45,9 @@ export const ModalCreateProduct = (props) => {
 			setLoading(false)
 		}catch(e) {
 			setLoading(false)
-			setError(e)
+			if (Array.isArray(e)){
+				setError(e)
+			}
 		}
 	}
 	

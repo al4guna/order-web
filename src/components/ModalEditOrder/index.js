@@ -29,7 +29,11 @@ export const ModalEditOrder = (props) => {
 			setLoading(false)
 			props.activateModal()
 		}catch(e) {
-		 	setLoading(false)
+			 setLoading(false)
+			if (Array.isArray(e)){
+				setError(e)
+			}
+			 
 		}
 	}
 
