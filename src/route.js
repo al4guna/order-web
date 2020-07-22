@@ -10,8 +10,8 @@ export const Router = () => {
 		<BrowserRouter>
 			<GlobalStyle />
 			<Switch>
-				<Route exact path="/"> <Home /> </Route>
-				<Route exact path="/:id"> <Products/> </Route>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/:id" component={Products} />  
 			</Switch>
 		</BrowserRouter>
 	)
