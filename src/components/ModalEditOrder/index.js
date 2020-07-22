@@ -18,26 +18,18 @@ export const ModalEditOrder = (props) => {
 	const value = useInputValue(Number)
 	
 	const [ loading, setLoading] = useState(false)
-	const [errors, setError] = useState([])
-
-	const restoreForm = () => {
-		value.setInput(0)
-	}
 
 	const save = async (e) => {
 		e.preventDefault()
 		try {
 			setLoading(true)
-			const order = await parserUpdateOrder(props.id , state, value )
+			const order = parserUpdateOrder(props.id , state, value )
 			const { data } = await updateOrder(order)
 			props.updateOrder(data.data)
+			setLoading(false)
 			props.activateModal()
-		 	restoreForm()
-		 	setError([])
-		 	setLoading(false)
 		}catch(e) {
 		 	setLoading(false)
-		 	setError(e)
 		}
 	}
 
@@ -70,17 +62,6 @@ export const ModalEditOrder = (props) => {
 					<Container>
 						<ButtonSave onClick={save}>Guardar Orden</ButtonSave>
 					</Container>
-					<Error>
-					{
-						errors.map((e, key) => {
-							return (
-								<span key={key}>
-									{e}, 
-								</span>
-							)
-						})
-					}
-					</Error>
 				</Content>
 				{ loading && <Loading />}
 			</Modal>

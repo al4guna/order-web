@@ -22,6 +22,12 @@ export const parserCreateProduct = (idOrder, sku, name, quantity, price, barcode
 }
 
 export const parserUpdateOrder = (id, state, value) => {
+	if(Number(value.value) === 0) {
+		return { id: id, state: state.value }
+	} 
+	if(state.value.lenght < 1) {
+		return { id: id, value: Number(value.value) }
+	}
 	return {
 		id: id,
 		state: state.value,
