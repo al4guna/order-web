@@ -1,12 +1,23 @@
 import React from 'react'
+import { IoMdArrowBack } from 'react-icons/io'
 
 import {
-	Header, Title
+	Header, Title, ContainerBack
 } from './styled'
 
-export const Nav = () => {
+const Back = () => {
+	return (
+		<ContainerBack  to={"/"}>
+			<IoMdArrowBack color="#000" size="20px"/>
+		</ContainerBack>
+	)
+}
+
+export const Nav = ({back}) => {
+
 	return (
 		<Header>
+			{ back && <Back/> }
 			<Title>Sistema de gestión de órdenes</Title>
 		</Header>
 	)
