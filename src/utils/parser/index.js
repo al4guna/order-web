@@ -20,3 +20,11 @@ export const parserCreateProduct = (idOrder, sku, name, quantity, price, barcode
 		barcode: barcode.value
 	}
 }
+
+export const parserUpdateOrder = (id, state, value) => {
+	return {
+		id: id,
+		state: state.value,
+		value: Number(value.value)
+	}
+}
