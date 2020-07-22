@@ -1,17 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineDelete } from 'react-icons/ai'
+
+import { deleteProduct } from '../../services/product'
+import { Loading } from '../Loading'
+
 import {
 	Item, Header, Content, Title,
 	Icon, Text, Span
 }from './styled'
 
 export const Product = (props) => {
-	
+	const removeProduct = async () => {
+		try{
+			props.handleDeleteProduct(props.id)
+			await deleteProduct(props.id)
+		}catch(e) {
+			console.log(e)
+		}
+	}
+
 	return(
 		<Item>
 			<Header>
 				<Title>Producto #{props.number + 1}</Title>
-				<Icon>
+				<Icon onClick={removeProduct}>
 					<AiOutlineDelete size="25px" color="#000"/> 
 				</Icon>
 			</Header>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { URL_API } from '../../global/string'
 
-export const getOrders =  (idOrder) => {
+export const getProduct =  (idOrder) => {
 	const request =  axios({
 		method: "get",
 	 	url: `${URL_API}/productos/${idOrder}`,
@@ -16,6 +16,15 @@ export const postProduct = (product) => {
 		url: `${URL_API}/productos`,
 		headers: [],
 		data: product
+	})
+	return request
+}
+
+export const deleteProduct = (id) => {
+	const request = axios({
+		method: "delete",
+		url: `${URL_API}/productos/${id}`,
+		headers:[]
 	})
 	return request
 }

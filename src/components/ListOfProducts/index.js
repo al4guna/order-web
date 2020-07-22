@@ -6,13 +6,12 @@ import {
 	List
 }from './styled'
 
-export const ListOfProducts = ({products}) => {
+export const ListOfProducts = ({products, handleDeleteProduct}) => {
 	return(
 		<List>{
-			
 			products.map((product, key) => {
-				return <Product {...product} key={key} number={key}/>
+				return <Product handleDeleteProduct={handleDeleteProduct} {...product} key={key} number={key}/>
 			})
-		} <Product number={1}/>  </List>
+		}</List>
 	)
 }
