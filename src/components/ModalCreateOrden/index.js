@@ -46,11 +46,10 @@ export const ModalCreateOrden = (props) => {
 			setLoading(false)
 		}catch(e) {
 			setLoading(false)
-			if (Array.isArray(e))
+			if (Array.isArray(e)){
 				setError(e)
-			else {
-				setError([e])
 			}
+			
 		}
 	}
 
